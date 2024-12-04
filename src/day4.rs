@@ -56,6 +56,7 @@ pub fn pt2(input: String) {
                         if ox * oy == 0 {
                             continue;
                         }
+                        // Rust option gaming
                         if let Some(letter) =
                             grid.get(py as usize).and_then(|line| line.get(px as usize))
                         {
