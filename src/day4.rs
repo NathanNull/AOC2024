@@ -1,4 +1,12 @@
-pub fn pt1(input: String) {
+pub fn main(input: String, is_pt1: bool) {
+    if is_pt1 {
+        pt1(input)
+    } else {
+        pt2(input);
+    }
+}
+
+fn pt1(input: String) {
     let grid: Vec<Vec<char>> = input
         .split("\r\n")
         .map(|line| line.chars().collect())
@@ -37,7 +45,7 @@ pub fn pt1(input: String) {
     println!("XMAS count is {xmas_count}");
 }
 
-pub fn pt2(input: String) {
+fn pt2(input: String) {
     let grid: Vec<Vec<char>> = input
         .split("\r\n")
         .map(|line| line.chars().collect())

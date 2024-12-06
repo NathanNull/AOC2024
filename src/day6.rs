@@ -1,14 +1,6 @@
 use std::collections::{HashMap, HashSet};
 
-pub fn pt1(input: String) {
-    main(input, true);
-}
-
-pub fn pt2(input: String) {
-    main(input, false);
-}
-
-fn main(input: String, pt1: bool) {
+pub fn main(input: String, pt1: bool) {
     let grid_chars = input
         .lines()
         .map(|l| l.chars().collect::<Vec<_>>())

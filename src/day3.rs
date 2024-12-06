@@ -1,14 +1,6 @@
 use regex::Regex;
 
-pub fn pt1(input: String) {
-    main(input, true);
-}
-
-pub fn pt2(input: String) {
-    main(input, false);
-}
-
-fn main(input: String, pt1: bool) {
+pub fn main(input: String, pt1: bool) {
     // Matches mul([numbers],[numbers]), or do() with an optional n't in the middle (i.e. don't())
     let muls = Regex::new(r"(mul\((\d*),(\d*)\))|(do(n't)?\(\))").unwrap();
     let num = Regex::new(r"\d+").unwrap();

@@ -2,15 +2,7 @@ use std::collections::{HashMap, HashSet};
 
 use crate::helpers::first_n;
 
-pub fn pt1(input: String) {
-    main(input, true);
-}
-
-pub fn pt2(input: String) {
-    main(input, false);
-}
-
-fn main(input: String, pt1: bool) {
+pub fn main(input: String, pt1: bool) {
     let [reqs_strs, updates_strs] =
         first_n(&mut input.split("\r\n\r\n")).map(|s| s.split("\r\n").collect::<Vec<_>>());
     let reqs = reqs_strs

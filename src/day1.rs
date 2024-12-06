@@ -1,9 +1,17 @@
 use std::collections::HashMap;
 
+pub fn main(input: String, is_pt1: bool) {
+    if is_pt1 {
+        pt1(input)
+    } else {
+        pt2(input);
+    }
+}
+
 // Input is two lists of numbers, side by side. Pair the numbers in order of size,
 // and find the difference between each pair. Return the sum.
 // Terrible inefficient nonsense but it works
-pub fn pt1(input: String) {
+fn pt1(input: String) {
     let lines = input.split("\r\n").map(|l| {
         l.split("   ")
             .map(|n| n.parse::<i64>().unwrap())
@@ -26,7 +34,7 @@ pub fn pt1(input: String) {
     println!("Sum is {sum}");
 }
 
-pub fn pt2(input: String) {
+fn pt2(input: String) {
     let lines = input.split("\r\n").map(|l| {
         l.split("   ")
             .map(|n| n.parse::<i64>().unwrap())
