@@ -50,7 +50,7 @@ pub fn lcm(nums: &[i64]) -> i64 {
 }
 
 #[allow(dead_code)]
-fn gcd_of_two_numbers(a: i64, b: i64) -> i64 {
+pub fn gcd_of_two_numbers(a: i64, b: i64) -> i64 {
     if b == 0 {
         return a;
     }
