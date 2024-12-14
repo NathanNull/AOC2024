@@ -3,7 +3,7 @@ use std::collections::HashSet;
 use crate::helpers::first_n;
 
 pub fn main(input: String, pt1: bool) {
-    const IS_EXAMPLE: bool = false;
+    const IS_EXAMPLE: bool = false; // Set to true to try pt1 on the test case
     let room_size = if IS_EXAMPLE { (11, 7) } else { (101, 103) };
     let mut robots = input
         .lines()
@@ -21,7 +21,7 @@ pub fn main(input: String, pt1: bool) {
         })
         .collect::<Vec<_>>();
     let mut quadrants = [[0, 0], [0, 0]];
-    // 10403 determined to be the loop point for my input (probably globally as well as 103*101=10403)
+    // 10403 determined through testing to be the loop point for my input (probably globally as well as 103*101=10403)
     for i in 0..if pt1 { 100 } else { 10403 } {
         for [pos, vel] in robots.iter_mut() {
             *pos = [
@@ -31,7 +31,7 @@ pub fn main(input: String, pt1: bool) {
         }
         if !pt1 {
             let pos_set: HashSet<&[i64; 2]> = HashSet::from_iter(robots.iter().map(|[p, _]| p));
-            if i<10 || maybe_tree(&pos_set) {
+            if i < 10 || maybe_tree(&pos_set) {
                 for x in 0..room_size.0 {
                     for y in 0..room_size.1 {
                         print!("{}", if pos_set.contains(&[x, y]) { '#' } else { '.' });
@@ -80,6 +80,6 @@ fn maybe_tree(posns: &HashSet<&[i64; 2]>) -> bool {
             diag_count += 1;
         }
     }
-    // Random guess
+    // Random guess. Turns out the trees are not in fact outlined. Works anyway.
     return diag_count >= 30;
 }
