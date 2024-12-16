@@ -7,7 +7,7 @@ pub fn first_n<const N: usize, T: Default + Copy>(iter: &mut impl Iterator<Item 
     ret
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[allow(dead_code)]
 pub enum Direction {
     Up,
@@ -36,6 +36,19 @@ impl Direction {
             Right => (1, 0),
             Left => (-1, 0),
         }
+    }
+
+    pub fn opposite(&self) -> Self {
+        match self {
+            Up => Down,
+            Down => Up,
+            Right => Left,
+            Left => Right,
+        }
+    }
+
+    pub fn iter() -> [Self; 4] {
+        [Up, Down, Left, Right]
     }
 }
 
