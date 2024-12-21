@@ -7,4 +7,5 @@ edition = "2021"
 
 [dependencies]
 find_folder = "*"
+itertools = "0.13.0"
 regex="*"
